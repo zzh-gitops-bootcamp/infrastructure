@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-http-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-http-server
+  template:
+    metadata:
+      labels:
+        app: simple-http-server
+    spec:
+      containers:
+      - name: simple-http-server
+        image: ghcr.io/<GitHub organization>/simple-http-server
+        ports:
+        - containerPort: 8080
